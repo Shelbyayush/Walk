@@ -1,0 +1,306 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --lilac: #9d5fb3;
+    --lilac-light: #b575c7;
+    --white: #f5f5f5;
+    --yellow: #ffd700;
+    --yellow-light: #ffed4e;
+    --green: #4a7c59;
+}
+
+body {
+    background-color: #FFF5E4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    color: #843cc3;
+    font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+    font-weight: bold;
+}
+
+#thankyou {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    z-index: 1000;
+    position: relative;
+    margin-bottom: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+}
+
+/* Bouquet Container */
+.bouquet-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Flower Stems */
+.flower-stem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    z-index: 1;
+}
+
+.flower-stem--lilac {
+    z-index: 3;
+}
+
+.flower-stem--white {
+    z-index: 5;
+}
+
+.flower-stem--yellow {
+    z-index: 4;
+}
+
+.flower-stem--lilac-2 {
+    z-index: 2;
+}
+
+.flower-stem--white-2 {
+    z-index: 6;
+}
+
+.flower-stem--yellow-2 {
+    z-index: 7;
+}
+
+.flower-stem--lilac-3 {
+    z-index: 8;
+}
+
+.flower-stem--white-3 {
+    z-index: 10;
+}
+
+.flower-stem--yellow-3 {
+    z-index: 11;
+}
+
+.flower-stem--lilac-4 {
+    z-index: 9;
+}
+
+.flower-stem--white-4 {
+    z-index: 12;
+}
+
+.flower-stem--yellow-4 {
+    z-index: 13;
+}
+
+/* Stem Line */
+.stem {
+    position: relative;
+    width: 4px;
+    height: 400px;
+    background: linear-gradient(to top, var(--green), var(--green));
+    border-radius: 2px;
+    order: 2;
+}
+
+/* Leaves */
+.leaf {
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    background: var(--green);
+    border-radius: 50% 0 50% 50%;
+}
+
+.leaf--left {
+    left: -25px;
+    top: 100px;
+    transform: rotate(-30deg);
+}
+
+.leaf--right {
+    right: -25px;
+    top: 200px;
+    transform: rotate(30deg);
+}
+
+/* Flower */
+.flower {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 1;
+}
+
+/* Petals */
+.petal {
+    position: absolute;
+    width: 40px;
+    height: 55px;
+    border-radius: 50% 50% 50% 0;
+    transform-origin: 50% 100%;
+}
+
+.lilac-flower .petal {
+    background: linear-gradient(135deg, var(--lilac-light), var(--lilac));
+}
+
+.white-flower .petal {
+    background: linear-gradient(135deg, #ffffff, var(--white));
+    border: 1px solid #e0e0e0;
+}
+
+.yellow-flower .petal {
+    background: linear-gradient(135deg, var(--yellow-light), var(--yellow));
+}
+
+/* Petal positions */
+.petal--1 {
+    transform: rotate(0deg) translateY(-40px);
+}
+
+.petal--2 {
+    transform: rotate(72deg) translateY(-40px);
+}
+
+.petal--3 {
+    transform: rotate(144deg) translateY(-40px);
+}
+
+.petal--4 {
+    transform: rotate(216deg) translateY(-40px);
+}
+
+.petal--5 {
+    transform: rotate(288deg) translateY(-40px);
+}
+
+/* Flower Center */
+.flower-center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #5c4033;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Falling Petals */
+.falling-petals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.petal-fall {
+    position: absolute;
+    width: 20px;
+    height: 25px;
+    border-radius: 50% 50% 50% 0;
+    opacity: 0.8;
+}
+
+.petal-fall--lilac {
+    background: var(--lilac);
+    animation: fall-animation-lilac 3s linear infinite;
+}
+
+.petal-fall--white {
+    background: var(--white);
+    border: 1px solid #ddd;
+    animation: fall-animation-white 3s linear infinite;
+}
+
+.petal-fall--yellow {
+    background: var(--yellow);
+    animation: fall-animation-yellow 3s linear infinite;
+}
+
+/* Falling animations */
+@keyframes fall-animation-lilac {
+    0% {
+        top: -30px;
+        left: 150px;
+        opacity: 0;
+        transform: rotate(0deg) translateX(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 600px;
+        left: 100px;
+        opacity: 0;
+        transform: rotate(360deg) translateX(30px);
+    }
+}
+
+@keyframes fall-animation-white {
+    0% {
+        top: -40px;
+        left: 200px;
+        opacity: 0;
+        transform: rotate(0deg) translateX(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 600px;
+        left: 180px;
+        opacity: 0;
+        transform: rotate(360deg) translateX(-20px);
+    }
+}
+
+@keyframes fall-animation-yellow {
+    0% {
+        top: -50px;
+        left: 100px;
+        opacity: 0;
+        transform: rotate(0deg) translateX(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 600px;
+        left: 140px;
+        opacity: 0;
+        transform: rotate(360deg) translateX(20px);
+    }
+}
